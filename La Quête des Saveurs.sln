@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "La Quête des Saveurs", "La Quête des Saveurs\La Quête des Saveurs.csproj", "{FEEDE14C-5AA4-4CBD-8946-961F88C23537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Saveur.model", "Saveur.model\Saveur.model.csproj", "{FE0A2BF9-D328-4F3A-BC35-238C8EFC4A4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEEDE14C-5AA4-4CBD-8946-961F88C23537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEEDE14C-5AA4-4CBD-8946-961F88C23537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEEDE14C-5AA4-4CBD-8946-961F88C23537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEEDE14C-5AA4-4CBD-8946-961F88C23537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0A2BF9-D328-4F3A-BC35-238C8EFC4A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0A2BF9-D328-4F3A-BC35-238C8EFC4A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0A2BF9-D328-4F3A-BC35-238C8EFC4A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0A2BF9-D328-4F3A-BC35-238C8EFC4A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {441EF8BD-C55A-4CB1-9C8F-8CE46C96CD5C}
+	EndGlobalSection
+EndGlobal
