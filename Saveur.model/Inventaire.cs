@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spectre.Console;
 
 namespace Saveur.model
 {
@@ -52,7 +53,10 @@ namespace Saveur.model
         {
             foreach (var i in _stock)
             {
-                Console.WriteLine($"{i.Key}:{i.Value}");
+
+                var inventoryPanel = new Panel("Inventaire: "+i.Key)
+                .Header("Inventaire")
+                .Border(BoxBorder.Rounded);
             }
         }
     }
