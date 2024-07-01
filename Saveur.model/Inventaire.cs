@@ -49,14 +49,16 @@ namespace Saveur.model
 
         //Fonction pour afficher le contenu de l'inventaire (a voir avec les autre fonsonaliter pour l'affichage)
 
-        public void AfficherInventaire()
+        public void AfficherInventaire(int x, int y)
         {
-            foreach (var i in _stock)
+            int i = 0;
+            Console.SetCursorPosition(x, y);
+            Console.WriteLine("Inventory:");
+            foreach (var item in _stock)
             {
-
-                var inventoryPanel = new Panel("Inventaire: "+i.Key)
-                .Header("Inventaire")
-                .Border(BoxBorder.Rounded);
+                Console.SetCursorPosition(x, y + i + 1);
+                Console.WriteLine(item.Key +" : " +item.Value);
+                i++;
             }
         }
     }
