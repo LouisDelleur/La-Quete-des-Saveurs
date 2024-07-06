@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Saveur.model
+namespace Saveur.model.recettte
 {
-    public class Carotte : Nourriture
+    public class RLezard : Nourriture
     {
+
         public override string Nom
         {
             get
             {
-                return "Carotte";
+                return "Ragoût de Lézard";
             }
         }
         public override int Prix
@@ -34,8 +35,10 @@ namespace Saveur.model
         {
             get
             {
-                return "Une carotte si rare qu'elle est réservée aux rois et aux dieux. Redonne beaucoup de points de nourriture, et un peu de noblesse à votre repas.";
+                return "Un plat exotique alliant la queue de lézard croquante et des navets juteux. Pour les aventuriers au palais audacieux.";
             }
         }
+
+
     }
 }

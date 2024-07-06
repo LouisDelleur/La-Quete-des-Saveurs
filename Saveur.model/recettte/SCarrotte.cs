@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Saveur.model
+namespace Saveur.model.recettte
 {
-    public class Carotte : Nourriture
+    public class SCarrotte : Nourriture
     {
         public override string Nom
         {
             get
             {
-                return "Carotte";
+                return "Soupe de Carotte";
             }
         }
         public override int Prix
@@ -34,8 +34,13 @@ namespace Saveur.model
         {
             get
             {
-                return "Une carotte si rare qu'elle est réservée aux rois et aux dieux. Redonne beaucoup de points de nourriture, et un peu de noblesse à votre repas.";
+                return "Bien que cela réduise la valeur des précieuses carottes aux yeux des dieux, cette soupe est extrêmement populaire parmi le peuple. Un réconfort simple et savoureux.";
             }
         }
+
+
+
+
+
     }
 }

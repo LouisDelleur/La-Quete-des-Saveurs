@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Saveur.model
+namespace Saveur.model.Graine
 {
-    public class Carotte : Nourriture
+    public class GBle : Nourriture
     {
         public override string Nom
         {
             get
             {
-                return "Carotte";
+                return "Blé";
             }
         }
         public override int Prix
@@ -34,8 +34,10 @@ namespace Saveur.model
         {
             get
             {
-                return "Une carotte si rare qu'elle est réservée aux rois et aux dieux. Redonne beaucoup de points de nourriture, et un peu de noblesse à votre repas.";
+                return "Les grains dorés qui nourrissent le royaume. De quoi faire du pain, des pâtes, et plus encore.";
             }
         }
+
+
     }
 }

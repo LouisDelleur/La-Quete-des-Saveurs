@@ -15,6 +15,15 @@ namespace Saveur.model
         public Inventaire() 
         { 
             _stock = new Dictionary<string, int>();
+
+            _stock.Add("Carotte", 0);
+            _stock.Add("Navet", 0);
+            _stock.Add("Blé", 0);
+            _stock.Add("viande de cerf", 0);
+            _stock.Add("viande de Sanglier", 0);
+            _stock.Add("queu de lézard", 0);
+
+
         }
 
 
@@ -45,7 +54,7 @@ namespace Saveur.model
         }
 
 
-
+        // TO DO rejouter un point chance et coliier pour le modifier 
 
         //Fonction pour afficher le contenu de l'inventaire (a voir avec les autre fonsonaliter pour l'affichage)
 
@@ -56,8 +65,10 @@ namespace Saveur.model
             Console.WriteLine("Inventory:");
             foreach (var item in _stock)
             {
-                Console.SetCursorPosition(x, y + i + 1);
-                Console.WriteLine(item.Key +" : " +item.Value);
+                int column = i / 8; // Determine les column (0 or 1)
+                int row = i % 8;    // Determine the row (0 to 4)
+                Console.SetCursorPosition(x + column * 30, y + row + 1);
+                Console.WriteLine($"- {item.Key}: {item.Value}");
                 i++;
             }
         }

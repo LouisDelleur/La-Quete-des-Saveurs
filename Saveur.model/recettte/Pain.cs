@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Saveur.model
+namespace Saveur.model.recettte
 {
-    public class Carotte : Nourriture
+    public class Pain : Nourriture
     {
         public override string Nom
         {
             get
             {
-                return "Carotte";
+                return "Pain";
             }
         }
         public override int Prix
@@ -34,8 +34,9 @@ namespace Saveur.model
         {
             get
             {
-                return "Une carotte si rare qu'elle est réservée aux rois et aux dieux. Redonne beaucoup de points de nourriture, et un peu de noblesse à votre repas.";
+                return "Une miche de pain croustillante à l'extérieur et moelleuse à l'intérieur. Parfait pour accompagner n'importe quel repas ou pour calmer les petits creux en chemin.";
             }
         }
+
     }
 }
