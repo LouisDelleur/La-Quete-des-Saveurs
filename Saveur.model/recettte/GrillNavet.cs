@@ -20,14 +20,14 @@ namespace Saveur.model.recettte
         {
             get
             {
-                return 100;
+                return 3;
             }
         }
         public override int Gaugefaim
         {
             get
             {
-                return 10;
+                return 7;
             }
         }
 

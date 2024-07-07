@@ -12,6 +12,7 @@ using Spectre.Console;
     "foret"
     "dormir" 
     "camp"
+    "craft"
 */
 
 
@@ -62,6 +63,27 @@ while (rejouer)
     }
     else if (textEvent == "marcher")
     {
+        LvSeeFood(Faim);
+        sousou(Or);
+        inventaire.AfficherInventaire(70, 0);
+        Ascii.king();
+        textEvent = text.Textechoix(textEvent);
+        Console.ResetColor();
+        Console.Clear();
+
+        if (textEvent == "vendre")
+        {
+            LvSeeFood(Faim);
+            sousou(Or);
+            inventaire.AfficherInventaire(70, 0);
+            Ascii.king();
+
+        }
+        else if (textEvent == "acheter")
+        {
+
+        }
+
 
     }
     else if (textEvent == "prairie")
