@@ -27,13 +27,16 @@ namespace Saveur.model
             string color = "0 \u001b[0m";
             if (textEvent == "camp")
             {
-                
+
                 Console.CursorVisible = false;
 
                 while (!isSelected)
                 {
+                    Console.ResetColor();
                     Console.SetCursorPosition(left, top);
-
+                    Console.WriteLine("Bienvenue au campement, chevalier. \n " +
+                        "Ici, vous trouverez tout ce dont vous avez besoin pour vous reposer et vous préparer à votre quête. \n" +
+                        "Installez-vous près du feu de camp, échangez des histoires avec vos compagnons et rechargez vos forces avant de repartir à l'aventure.");
 
                     Console.Write("\n\n\n");
                     Console.WriteLine($"{(option == 1 ? color : "  ")}Aller voir le roi Carotte \u001b[32m");
@@ -95,8 +98,8 @@ namespace Saveur.model
                     Console.Write("\n\n\n");
                     Console.WriteLine($"{(option == 1 ? color : "  ")}Aller au camp \u001b[32m");
                     Console.WriteLine($"{(option == 2 ? color : "  ")}Aller au marcher\u001b[32m");
-                    Console.WriteLine($"{(option == 3 ? color : "  ")}Aller donner les sainte carottes\u001b[32m");
-                    
+                    Console.WriteLine($"{(option == 3 ? color : "  ")}donner les sainte carottes\u001b[32m");
+
 
                     key = Console.ReadKey(true);
 
@@ -123,7 +126,7 @@ namespace Saveur.model
                         textEvent = "marcher";
                         break;
                     case 3:
-                        textEvent = "dormir";
+                        textEvent = "donner";
                         break;
                 }
 
@@ -171,7 +174,20 @@ namespace Saveur.model
                 }
 
             }
-           
+            else if (textEvent == "dormir")
+            {
+
+                Console.WriteLine("Après une longue journée de quête et d'aventures, \n " +
+                    "il est temps de fermer les yeux et de se reposer. Trouvez un coin confortable, \n" +
+                    "laissez vos soucis derrière vous et plongez dans un sommeil réparateur. \n" +
+                    "Demain est un nouveau jour rempli de nouvelles opportunités et défis. ");
+                Console.WriteLine("Appuyez sur n'importe quel touche pour continuer ");
+
+                textEvent = "camp";
+
+
+
+            }
             return textEvent;
         }
     }

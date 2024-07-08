@@ -17,11 +17,7 @@ namespace Saveur.model
             _stock = new Dictionary<string, int>();
 
             _stock.Add("Carotte", 0);
-            _stock.Add("Navet", 0);
-            _stock.Add("Blé", 0);
-            _stock.Add("viande de cerf", 0);
-            _stock.Add("viande de Sanglier", 0);
-            _stock.Add("queu de lézard", 0);
+           
 
 
         }

@@ -31,6 +31,7 @@ namespace Saveur.model
             AnsiConsole.Write(panel2);
 
             Console.ReadLine();
+            Console.Clear();
 
         }
 

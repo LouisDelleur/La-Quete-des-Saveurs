@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Saveur.model;
+using Saveur.model.recettte;
 using Spectre.Console;
 
 /*
@@ -13,6 +14,8 @@ using Spectre.Console;
     "dormir" 
     "camp"
     "craft"
+
+    Nourriture cae = new Carotte(); --> creation des aliment 
 */
 
 
@@ -45,6 +48,8 @@ while (rejouer)
         textEvent = text.Textechoix(textEvent);
         Console.ResetColor();
         Console.Clear();
+        
+        
 
     }
     else if (textEvent == "roi")
@@ -96,6 +101,18 @@ while (rejouer)
     }
     else if (textEvent == "dormir")
     {
+        LvSeeFood(Faim);
+        sousou(Or);
+        inventaire.AfficherInventaire(70, 0);
+        Ascii.dodo();
+        textEvent = text.Textechoix(textEvent);
+        // reduire la faim 
+        Faim = Faim - 10;
+        Console.ReadLine();
+        Console.Clear();
+        
+
+
 
     }
 
