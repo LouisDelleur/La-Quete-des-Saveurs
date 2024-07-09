@@ -19,7 +19,7 @@ namespace Saveur.model.Graine
         {
             get
             {
-                return 0;
+                return 10;
             }
         }
         public override int Gaugefaim

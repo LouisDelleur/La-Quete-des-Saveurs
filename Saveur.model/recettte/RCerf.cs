@@ -12,7 +12,7 @@ namespace Saveur.model.recettte
         {
             get
             {
-                return "Ragoût de Cerf ";
+                return "Ragoût de Cerf";
             }
         }
         public override int Prix

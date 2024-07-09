@@ -8,9 +8,11 @@ namespace Saveur.model
 {
     public static class Ascii
     {
+
+        
         public static void king()
         {
-            Console.SetCursorPosition(0, 2);
+            Console.SetCursorPosition(0, 4);
             Console.WriteLine(@"                
                    / \
                   _\ /_
@@ -36,7 +38,7 @@ _..--'.-(    |   `-'''-'   |    )-.`--.._
 
         public static void Camp()
         {
-            Console.SetCursorPosition(0, 2);
+            Console.SetCursorPosition(0, 4);
             Console.WriteLine(@"     
            (                 ,&&&.
             )                .,.&&
@@ -54,7 +56,7 @@ _..--'.-(    |   `-'''-'   |    )-.`--.._
 
         public static void Garden() 
         {
-            Console.SetCursorPosition(0, 2);
+            Console.SetCursorPosition(0, 4);
             Console.WriteLine(@" 
                                         E   _
                                          \  o
@@ -67,7 +69,7 @@ _..--'.-(    |   `-'''-'   |    )-.`--.._
 
         public static void dodo()
         {
-            Console.SetCursorPosition(0, 2);
+            Console.SetCursorPosition(0, 4);
             Console.WriteLine(@" 
                               z
                              z
@@ -81,5 +83,101 @@ _..--'.-(    |   `-'''-'   |    )-.`--.._
                                 (________\  \
                                           '-' ");
         }
+
+        public static void kinghtWin() 
+        {
+            Console.SetCursorPosition(0, 4);
+            Console.WriteLine(@"
+
+                                         /'
+                                         ||
+                                         ||      ** *
+                                         ||      __X_
+                                         ||     ( ___\
+                                         ||     |:  \\
+                                        ><><  ___)..:/_#__,
+                                        (X|) (|+(____)+\ _)
+                                         o|_\/>> + + + << \
+                                           |:\/|+ + + +| \_\<
+                                           \./  XXXXXX.  (o_)_
+                                               /+ + + |   \:|
+                                              /+ +/+ +|  -/->>>----.
+                                             /+ +|+ /XX /   _--,  _ \
+                                            \+ + + /  |X   (,\- \/_ ,
+                                            /\+ + /\  |X \    /,//_/
+                                           +_+_+_( )o_)X  \  (( ///
+                                            (_o(  /__/ X   \  \\//
+                                             \_|  |_/  X    \ ///
+                                             \_| >(_/        \,/
+                                        ,////__o\ /__////,    V ");
+        }
+
+
+        public static void chatiment()
+        {
+            Console.WriteLine(@"
+                                            *_   _   _   _   _   _ *
+                                      ^       | `_' `-' `_' `-' `_' `|       ^
+                                      |       |                      |       |
+                                      |  (*)  |_   _   _   _   _   _ |  \^/  |
+                                      | _<"">_ | `_' `-' `_' `-' `_' `| _(#)_ |
+                                     o+o \ / \0                      0/ \ / (=)
+                                      0'\ ^ /\/                      \/\ ^ /`0
+                                        /_^_\ |                      | /_^_\
+                                        || || |                      | || ||
+                                        d|_|b_T______________________T_d|_|b ");
+        }
+
+        public static void Marchant()
+        {
+            Console.WriteLine(@"
+                           \_____________________/
+                            \       __O__       /
+                             \      =(_)=      /              +
+            +                _\  ___________  /_         .  . . .
+             . . +          ( \\/ ___   ___.\// )       +.. .. .+
+             .. .. :         \    (o)) ((o)    /       ... .. . .
+            .. : .. .:. .    (_)    /   \    (_)      ..+.. + ...+
+            . .+ . ++. .       \:. (_   _) .:/         +  + :.. + :
+             . __... . +        )::::\_/::::(            :. __  . .
+             _(  \ __ .        (:::\_|_|_/:::)          __ /  )_
+            (  \  (  \      __  \:::\_|_/:::/  __      /  )  /  )
+             \  \  \  \    /  )  \:::::::::/  (  \    /  /  /  /
+            ( \  \  \  \__/  /    |\:::::/|    \  \__/  /  /  //)
+             \ \_ \_ \_     / ____| |___| |____ \     _/ _/ _/ /
+              \            /_/ ||   |___|   || \_\            /
+               \          /\   ||  (_____)  ||   /\          /
+                \________/ \\  ||___________||  // \________/
+   ______________\\_______//    |___________|   \\______//_______________
+                  \______/_:                   :_\______/");
+        }
+
+        public static void achatpossible()
+        {
+            Console.WriteLine(@"
+
+                +- - - - - - - - - - - - - - - - - - - - - - - - - - +
+                |                                                    |
+                |    Trèfle a 4 feuilles :        10 po              |
+                |    Fer à cheval :               25 po              |
+                |    Bracelet de chance :         40 po              |
+                |    Os de poulet :               55 po              |
+                |    Chapeau de chance :          70 po              |
+                |                                                    |
+                +- - - - - - - - - - - - - - - - - - - - - - - - - - +
+
+
+
+
+
+
+
+");
+        }
+
+
     }
+
+
+
 }
