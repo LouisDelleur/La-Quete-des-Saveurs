@@ -166,8 +166,22 @@ _..--'.-(    |   `-'''-'   |    )-.`--.._
                 |                                                    |
                 +- - - - - - - - - - - - - - - - - - - - - - - - - - +");
         }
-         
 
+        public static void ventreobjet()
+        {
+            Console.WriteLine(@"
+
+                +- - - - - - - - - - - - - - - - - - - - - - - - - - +
+                |                                                    |
+                |    Carotte :                     1 po              |
+                |    Navet :                       5 po              |
+                |    Viande crue :                 2 po              |
+                |    Légume Griller :              4 po              |
+                |    Viande Griller  :             4 po              |
+                |    Ragout :                      5 po              |
+                |                                                    |
+                +- - - - - - - - - - - - - - - - - - - - - - - - - - +");
+        }
 
         public static void Manger()
         {
@@ -186,7 +200,27 @@ _..--'.-(    |   `-'''-'   |    )-.`--.._
                         `-------------`");
         }
 
+        public static void craft()
+        {
+            Console.WriteLine(@"
 
+                       .--,--.
+                       `.  ,.'
+                        |___|
+                        :o o:   O    Let me cook 
+                       _`~^~'_  |    
+                     /'   ^   `\=)
+                   .'  _______ '~|
+                   `(<=|     |= /'
+                       |     |
+                       |_____|
+                ~~~~~~~ ===== ~~~~~~~~
+
+
+
+
+");
+        }
 
     }
 

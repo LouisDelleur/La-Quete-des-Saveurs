@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Linq;
 using Saveur.model;
+using Saveur.model.Event;
 using Saveur.model.Graine;
 using Saveur.model.recettte;
 using Spectre.Console;
@@ -35,7 +38,10 @@ Nourriture Raglezard = new RLezard();
 Nourriture GrCarotte = new GCarotte();
 Nourriture Grnavet = new GNavet();
 
+bool estPlanter = false;
+bool dormir = false;
 
+int potager = 0;
 
 string voici = "Et voici mon brave !";
 int x = 110;
@@ -51,9 +57,7 @@ int chance = 0;
 Inventaire inventaire = new Inventaire(); // cration de l'inventaire 
 intro debut = new intro(); // creation de l'intro 
 
-inventaire.AjouterNourriture(Ragcerf);
-inventaire.AjouterNourriture(Carrotte);
-inventaire.AjouterNourriture(Navet);
+
 
 
 // intro 
@@ -98,8 +102,68 @@ while (rejouer)
         else if (textEvent == "champ")
         {
 
+            
+            LvSeeFood(Faim);
+            sousou(Or);
+            chancevisu(chance);
+            inventaire.AfficherInventaire(x, y);
+            Ascii.Garden();
+            textEvent = text.Textechoix(textEvent);
+            if (textEvent != "camp" && textEvent != "recolte")
+            {
+                estPlanter = inventaire.checkpotager(estPlanter, textEvent);
+                if (estPlanter == true && textEvent == "Graine de Carotte" && potager == 0)
+                {
+                    Console.WriteLine("Vous avez planter une Graine de Carotte  ");
+                    potager = 1;
+                    inventaire.SupprimerNourritureManger(GrCarotte);
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    textEvent = "champ";
+
+                }
+                else if (estPlanter == true && textEvent == "Graine de Navet" && potager == 0)
+                {
+                    Console.WriteLine("Vous avez planter une Graine de Navet  ");
+                    potager = 2;
+                    inventaire.SupprimerNourritureManger(Grnavet);
+                    Console.ResetColor();
+                    Console.ReadLine();
+                    textEvent = "champ";
+                }
+                else { Console.WriteLine("le potager est deja pliens ou vous n'avez pas les graines "); textEvent = "champ"; Console.ReadLine(); }
+                Console.Clear();
+            }
+            else if (textEvent == "recolte"  )
+            {
+                if (potager == 0)
+                {
+                    Console.WriteLine("Il n'y a pas de graine ici ! ");
+                    Console.ReadLine();
+                }
+                else if (potager == 1 && dormir == true)
+                {
+                    Console.WriteLine("voici une Sainte Carrotte");
+                    inventaire.AjouterNourriture(Carrotte);
+                    textEvent = "champ";
+                    potager = 0;
+                    Console.ReadLine();
+                }
+                else if (potager == 2 && dormir == true)
+                {
+                    Console.WriteLine("voici un beau navet !");
+                    inventaire.AjouterNourriture(Navet);
+                    textEvent = "champ";
+                    potager = 0;
+                    Console.ReadLine();
+                }
+                else { textEvent = "champ"; Console.WriteLine("Il n'y a pas de graine ici ! "); }
+                textEvent = "champ";
+                Console.Clear();
+            }
+            else {Console.Clear(); }
         }
-        else if (textEvent == "marcher")// ok
+        else if (textEvent == "marcher")// ok MARCHER 
         {
             LvSeeFood(Faim);
             sousou(Or);
@@ -117,7 +181,7 @@ while (rejouer)
                 sousou(Or);
                 chancevisu(chance);
                 inventaire.AfficherInventaire(x, y);
-                Ascii.();
+                Ascii.ventreobjet();
                 textEvent = text.Textechoix(textEvent);
                 peuxvendre = inventaire.CheckinventaireMarchant(peuxvendre, textEvent);
                 if (peuxvendre == true)
@@ -254,10 +318,54 @@ while (rejouer)
         }// ok
         else if (textEvent == "prairie")
         {
+            prairie prairie = new prairie();
+            int soltionde = rollthedice(chance);
 
+            string objettrouver = "";
+            LvSeeFood(Faim);
+            sousou(Or);
+            chancevisu(chance);
+            inventaire.AfficherInventaire(x, y);
+            objettrouver = prairie.AventurePraire(objettrouver,soltionde,chance);
+            if (objettrouver != "rien")
+            {
+                Nourriture item = new Nourriture();
+                item = ConvertToNourriture(objettrouver);
+                inventaire.AjouterNourriture(item);
+                textEvent = "camp";
+                Faim -= 5;
+            }
+            else { textEvent = "camp"; Faim -= 5; }
+            Console.Clear() ;
         }
         else if (textEvent == "foret")
         {
+            Foret foret = new Foret();
+            int soltionde = rollthedice(chance);
+            string objettrouver = "";
+            LvSeeFood(Faim);
+            sousou(Or);
+            chancevisu(chance);
+            inventaire.AfficherInventaire(x, y);
+            objettrouver = foret.AventureForet(objettrouver, soltionde, chance);
+            if (objettrouver != "rien"& objettrouver != "Or")
+            {
+                Nourriture item = new Nourriture();
+                item = ConvertToNourriture(objettrouver);
+                inventaire.AjouterNourriture(item);
+                textEvent = "camp";
+                Faim -= 10;
+            }
+            else if (objettrouver == "Or")
+            {
+                Random ren = new Random();
+                int argent = ren.Next(1,10);
+                Or = Or + argent;
+
+            }
+            else { textEvent = "camp"; Faim -= 5; }
+            Console.Clear();
+
 
         }
         else if (textEvent == "manger") // manger ok 
@@ -303,6 +411,27 @@ while (rejouer)
                 Console.Clear();
             }
         }
+        else if (textEvent == "craft")
+        {
+            LvSeeFood(Faim);
+            sousou(Or);
+            chancevisu(chance);
+            inventaire.AfficherInventaire(x, y);
+            Ascii.craft();
+            textEvent = text.Textechoix(textEvent);
+            if (textEvent == "camp")
+            {
+                Console.Clear();
+            }
+            else
+            {
+                string cooksup = "";
+                cooksup = inventaire.checkcook(cooksup, textEvent);
+                CheckFood(cooksup);
+                textEvent = "craft";
+                Console.Clear();
+            }
+        }
         else if (textEvent == "dormir") // ok
         {
             LvSeeFood(Faim);
@@ -315,7 +444,12 @@ while (rejouer)
             Faim = Faim - 10;
             Console.ReadLine();
             Console.Clear();
-
+            if (potager != 0)
+            {
+                dormir = true;
+            }
+            else { dormir = false; }
+     
 
 
 
@@ -377,12 +511,12 @@ Console.WriteLine("merci d'avoir jouer a 'la quête des Saveurs'" +
 
 //FONCTION 
 // lancer un dé
-int rollthedice()
+int rollthedice(int chance)
 {
     Random ren = new Random();
 
     int solutionde = ren.Next(1, 100);
-
+    solutionde = solutionde + chance;
     return solutionde;
 }
 //voir la jauge de nouriture avec console.spectre
@@ -495,6 +629,62 @@ Nourriture ConvertToNourriture(string objet)
     {
         return Grnavet;
     }
-
-    return Carrotte;
+    return Grnavet;
 } 
+
+
+void CheckFood(string cooksup)
+{
+    
+    Console.Clear();
+
+    if (cooksup == "Rien")
+    {
+        Console.WriteLine("vous ne pouvez cuisiner ca ! ");
+        Console.ReadLine();
+
+    }
+    else if (cooksup == "Carotte")
+    {
+        inventaire.SupprimerNourritureManger(Carrotte);
+        inventaire.AjouterNourriture(Grillcarotte);
+    }
+    else if (cooksup == "Navet")
+    {
+        inventaire.SupprimerNourritureManger(Navet);
+        inventaire.AjouterNourriture(GrillNavet);
+    }
+    else if (cooksup == "Viande de Cerf")
+    {
+        inventaire.SupprimerNourritureManger(Cerf);
+        inventaire.AjouterNourriture(GrillCref);
+    }
+    else if (cooksup == "Queue de Lézard")
+    {
+        inventaire.SupprimerNourritureManger(Lezard);
+        inventaire.AjouterNourriture(Grilllezard);
+    }
+    else if (cooksup == "Viande de Sanglier")
+    {
+        inventaire.SupprimerNourritureManger(Sanglier);
+        inventaire.AjouterNourriture(Grillsanglier);
+    }
+    else if (cooksup == "Cerf Grillé")
+    {
+        inventaire.SupprimerNourritureManger(GrillCref);
+        inventaire.AjouterNourriture(Ragcerf);
+    }
+    else if (cooksup == "Sanglier Grillé")
+    {
+        inventaire.SupprimerNourritureManger(Grillsanglier);
+        inventaire.AjouterNourriture(Ragsanglier);
+    }
+    else if (cooksup == "Lézard Grillé")
+    {
+        inventaire.SupprimerNourritureManger(Grilllezard);
+        inventaire.AjouterNourriture(Raglezard);
+    }
+
+
+
+}

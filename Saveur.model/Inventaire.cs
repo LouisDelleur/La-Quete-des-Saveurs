@@ -72,6 +72,126 @@ namespace Saveur.model
             }
         }
 
+        public string checkcook(string itemcraft, string choix)
+        {
+            if (choix == "Carotte Grillée")
+            {
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Carotte" && item.Value >= 1)
+                    {
+                        itemcraft = "Carotte";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Navet Grillé") 
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Navet" && item.Value >= 1)
+                    {
+                        itemcraft = "Navet";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Cerf Grillé") // 4
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Viande de Cerf" && item.Value >= 1)
+                    {
+                        itemcraft = "Viande de Cerf";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Lézard Grillé") // 5
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Queue de Lézard" && item.Value >= 1)
+                    {
+                        itemcraft = "Queue de Lézard";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Sanglier Grillé")//6
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Viande de Sanglier" && item.Value >= 1)
+                    {
+                        itemcraft = "Viande de Sanglier";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Ragoût de Cerf")//7
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Cerf Grillé" && item.Value >= 1)
+                    {
+                        itemcraft = "Cerf Grillé";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Ragoût de Sanglier")//8
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Sanglier Grillé" && item.Value >= 1)
+                    {
+                        itemcraft = "Sanglier Grillé";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else if (choix == "Ragoût de Lézard")//9
+            {
+
+                foreach (var item in _stock)
+                {
+                    if (item.Key == "Lézard Grillé" && item.Value >= 1)
+                    {
+                        itemcraft = "Lézard Grillé";
+                    }
+                    else { itemcraft = "Rien"; }
+                }
+
+            }
+            else { itemcraft = "Rien"; }
+            return itemcraft;
+        }
+
+        public bool checkpotager(bool estplanter , string choix)
+        {
+            foreach (var item in _stock)
+            {
+                if (item.Key == choix & item.Value >= 1)
+                {
+                    return estplanter = true;
+                }
+            }
+            return estplanter = false;
+        }
 
         // mofication de la chance 
         public int modifchance(int modif)
