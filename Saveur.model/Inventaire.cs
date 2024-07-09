@@ -55,6 +55,24 @@ namespace Saveur.model
             }
         }
 
+        public void SupprimerNourritureManger(Nourriture Objet)
+        {
+
+
+            if (_stock.ContainsKey(Objet.Nom) && _stock[Objet.Nom] >= 1)
+            {
+
+                _stock[Objet.Nom]--;
+                
+            }
+            else
+            {
+                _stock[Objet.Nom] = 0;
+      
+            }
+        }
+
+
         // mofication de la chance 
         public int modifchance(int modif)
         {

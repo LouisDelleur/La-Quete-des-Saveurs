@@ -117,7 +117,7 @@ while (rejouer)
                 sousou(Or);
                 chancevisu(chance);
                 inventaire.AfficherInventaire(x, y);
-                Ascii.king();
+                Ascii.();
                 textEvent = text.Textechoix(textEvent);
                 peuxvendre = inventaire.CheckinventaireMarchant(peuxvendre, textEvent);
                 if (peuxvendre == true)
@@ -248,7 +248,7 @@ while (rejouer)
 
 
 
-            }//ok 
+            }// acheter ok 
 
 
         }// ok
@@ -260,7 +260,50 @@ while (rejouer)
         {
 
         }
-        else if (textEvent == "dormir")
+        else if (textEvent == "manger") // manger ok 
+        {
+            bool peuxmanger = false;
+            LvSeeFood(Faim);
+            sousou(Or);
+            chancevisu(chance);
+            inventaire.AfficherInventaire(x, y);
+            Ascii.Manger(); 
+            textEvent = text.Textechoix(textEvent);
+            // action de savoir si il peut manger et quoi 
+            peuxmanger = inventaire.CheckinventaireMarchant(peuxmanger, textEvent);
+            Console.Clear();
+            if (peuxmanger == true && (textEvent != "Graine de Carotte" || textEvent!= "Graine de Navet"))
+            {
+                Nourriture item = new Nourriture();
+                item = ConvertToNourriture(textEvent);
+                // fonction de faim 
+                Manger manger = new Manger();
+                Faim = manger.Augmenterfaim(Faim,item);
+                inventaire.SupprimerNourritureManger(item);
+                textEvent = "manger";
+                Console.Clear();
+            }
+            else if (textEvent != "camp" & peuxmanger == false)
+            {
+
+                LvSeeFood(Faim);
+                sousou(Or);
+                chancevisu(chance);
+                inventaire.AfficherInventaire(x, y);
+                Ascii.Manger(); 
+
+                Console.WriteLine("Vous ne pouvez pas manger ca !");
+                textEvent = "manger";
+                Console.ReadLine();
+                Console.Clear();
+            }
+            else
+            {
+                textEvent = "camp";
+                Console.Clear();
+            }
+        }
+        else if (textEvent == "dormir") // ok
         {
             LvSeeFood(Faim);
             sousou(Or);
@@ -277,7 +320,7 @@ while (rejouer)
 
 
         }// rejouter le potager "champ"
-        else if (textEvent == "donner")
+        else if (textEvent == "donner") // ok 
         {
             aLesCarottes = inventaire.dixcarrotes();
             if (aLesCarottes == true)

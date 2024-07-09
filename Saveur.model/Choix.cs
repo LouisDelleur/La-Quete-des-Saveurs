@@ -49,16 +49,17 @@ namespace Saveur.model
                     Console.WriteLine($"{(option == 5 ? color : "  ")}Aller dans la foret\u001b[32m");
                     Console.WriteLine($"{(option == 6 ? color : "  ")}Aller dormir\u001b[32m");
                     Console.WriteLine($"{(option == 7 ? color : "  ")}Faire ca popote (cuisiner)\u001b[32m");
+                    Console.WriteLine($"{(option == 8 ? color : "  ")}Manger\u001b[32m");
 
                     key = Console.ReadKey(true);
 
                     switch (key.Key)
                     {
                         case ConsoleKey.DownArrow:
-                            option = (option == 7 ? 1 : option + 1);
+                            option = (option == 8 ? 1 : option + 1);
                             break;
                         case ConsoleKey.UpArrow:
-                            option = (option == 1 ? 7 : option - 1);
+                            option = (option == 1 ? 8 : option - 1);
                             break;
                         case ConsoleKey.Enter:
                             isSelected = true;
@@ -88,6 +89,9 @@ namespace Saveur.model
                         break;
                     case 7:
                         textEvent = "craft";
+                        break;
+                    case 8:
+                        textEvent = "manger";
                         break;
                 }
             }
@@ -274,13 +278,13 @@ namespace Saveur.model
                             break;
                         case 4:
                             textEvent = "Viande de sanglier";
-                            break ;
+                            break;
                         case 5:
                             textEvent = "Queue de lézard";
                             break;
                         case 6:
                             textEvent = "Carotte Grillée";
-                            break; 
+                            break;
                         case 7:
                             textEvent = "Navet Grillé";
                             break;
@@ -310,7 +314,7 @@ namespace Saveur.model
                             break;
                         case 16:
                             textEvent = "marcher";
-                            break ;
+                            break;
                     }
 
 
@@ -391,6 +395,102 @@ namespace Saveur.model
                         break;
                 }
 
+            }
+            else if (textEvent == "manger")
+            {
+                while (!isSelected)
+                {
+                    Console.ResetColor();
+                    Console.SetCursorPosition(left, top);
+                    Console.WriteLine("\n \n \n Aaaaah, Que vous dégustiez un ragoût savoureux,\n" +
+                        "ou une viande grillée à la perfection, chaque repas est un festin pour les sens.\n" +
+                        "Prenez le temps de savourer chaque bouchée, car un ventre plein rend un chevalier plus fort et plus vaillant!\"");
+                    Console.ForegroundColor = ConsoleColor.Green;
+
+
+                    Console.Write("\n\n\n");
+                    Console.WriteLine($"{(option == 1 ? color : "  ")}Manger Carrotte  \u001b[32m");
+                    Console.WriteLine($"{(option == 2 ? color : "  ")}Manger Navet \u001b[32m");
+                    Console.WriteLine($"{(option == 3 ? color : "  ")}Manger Viande de Cerf \u001b[32m");
+                    Console.WriteLine($"{(option == 4 ? color : "  ")}Manger Viande de Sanglier\u001b[32m");
+                    Console.WriteLine($"{(option == 5 ? color : "  ")}Manger Queue de Lézard\u001b[32m");
+                    Console.WriteLine($"{(option == 6 ? color : "  ")}Manger Carotte Grillée\u001b[32m");
+                    Console.WriteLine($"{(option == 7 ? color : "  ")}Manger Navet Grillé\u001b[32m");
+                    Console.WriteLine($"{(option == 8 ? color : "  ")}Manger Cerf Grillé\u001b[32m");
+                    Console.WriteLine($"{(option == 9 ? color : "  ")}Manger Sanglier Grillé\u001b[32m");
+                    Console.WriteLine($"{(option == 10 ? color : "  ")}Manger Lézard Grillé\u001b[32m");
+                    Console.WriteLine($"{(option == 11 ? color : "  ")}Manger Ragoût de Cerf\u001b[32m");
+                    Console.WriteLine($"{(option == 12 ? color : "  ")}Manger Ragoût de Sanglier\u001b[32m");
+                    Console.WriteLine($"{(option == 13 ? color : "  ")}Manger Ragoût de Lézard\u001b[32m");
+                    Console.WriteLine($"{(option == 14 ? color : "  ")}Retour\u001b[32m");
+
+
+
+                    key = Console.ReadKey(true);
+
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.DownArrow:
+                            option = (option == 14 ? 1 : option + 1);
+                            break;
+                        case ConsoleKey.UpArrow:
+                            option = (option == 1 ? 14 : option - 1);
+                            break;
+                        case ConsoleKey.Enter:
+                            isSelected = true;
+                            break;
+                    }
+
+
+                    switch (option)
+                    {
+                        case 1:
+                            textEvent = "Carotte";
+                            break;
+                        case 2:
+                            textEvent = "Navet";
+                            break;
+                        case 3:
+                            textEvent = "Viande de Cerf";
+                            break;
+                        case 4:
+                            textEvent = "Viande de sanglier";
+                            break;
+                        case 5:
+                            textEvent = "Queue de lézard";
+                            break;
+                        case 6:
+                            textEvent = "Carotte Grillée";
+                            break;
+                        case 7:
+                            textEvent = "Navet Grillé";
+                            break;
+                        case 8:
+                            textEvent = "Cerf Grillé";
+                            break;
+                        case 9:
+                            textEvent = "Sanglier Grillé";
+                            break;
+                        case 10:
+                            textEvent = "Lézard Grillé";
+                            break;
+                        case 11:
+                            textEvent = "Ragoût de Cerf";
+                            break;
+                        case 12:
+                            textEvent = "Ragoût de Sanglier";
+                            break;
+                        case 13:
+                            textEvent = "Ragoût de Lézard";
+                            break;
+                        case 14:
+                            textEvent = "camp";
+                            break;
+
+
+
+                    }
+                }
             }
             // choix si hero donne carrote ou non 
             else if (textEvent == "chatiment")
